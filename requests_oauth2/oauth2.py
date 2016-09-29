@@ -1,6 +1,16 @@
 import requests
-from urllib import quote, urlencode
-from urlparse import parse_qs
+
+try:
+    # python 3.x
+    from urllib.parse import quote
+    from urllib.parse import urlencode
+    from urllib.parse import parse_qs
+except ImportError:
+    # python 2.x
+    from urllib import quote
+    from urllib import urlencode
+    from urlparse import parse_qs
+
 try:
     import simplejson as json
 except ImportError:
